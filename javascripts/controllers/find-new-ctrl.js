@@ -3,15 +3,18 @@
 app.controller("FindNewCtrl", ["$scope", "$http",
   
   function($scope,$http) {
+    var movieArray = [];
     var movieObj;
 
     $scope.searchOMDB = function() {
       console.log("I see searchString =",$scope.findNewSearchString.replace(/ /g,"+"));
       $http({
         method: "GET",
-        url: "http://www.omdbapi.com/?t=" + $scope.findNewSearchString.replace(/ /g,"+")
+        url: "http://www.omdbapi.com/?s=" + $scope.findNewSearchString.replace(/ /g,"+")
       })
       .then(function(objReceived) {
+        movieArray = objReceived.data.Search;
+        console.log("movieArray", movieArray);
         movieObj = objReceived.data;
         console.log("got",movieObj);
         $("#leftBox").html(`<img src='${movieObj.Poster}'>`);
