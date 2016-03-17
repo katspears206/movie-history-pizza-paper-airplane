@@ -1,0 +1,10 @@
+<section>
+	<div ng-repeat="movie in movies">
+        <div id="movieBox" style="margin-bottom: 70px">
+            <img ng-src={{movie.Poster}}>
+            <p>rating: {{movie.stars}} stars</p>
+            <button class="watched" ng-hide="hideWatchedButton" ng-click="addToWatched(movie)">Move to Watched</button>
+            <p ng-hide="hideWatchedText">watched</p>
+        </div>
+    </div>
+</section>

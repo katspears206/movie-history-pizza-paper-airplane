@@ -22,6 +22,10 @@ app.config(['$routeProvider',  // $routeProvider object is given to us by ngRout
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
       }).
+      when('/searchresults', {
+        templateUrl: 'partials/search-results.html',
+        controller: 'ResultsCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
