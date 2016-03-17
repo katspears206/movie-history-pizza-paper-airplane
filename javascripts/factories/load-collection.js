@@ -24,5 +24,5 @@ app.factory("load-collection", function($q, $http) {
       );
     });
   }
-  return getCollection();  // returns a Promise to any controller
+  return getCollection;  // returns a Promise to any controller
 });

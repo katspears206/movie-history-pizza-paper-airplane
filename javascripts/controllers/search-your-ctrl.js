@@ -12,7 +12,7 @@ app.controller("SearchYourCtrl", ["$scope", "$http", "load-collection",
         $scope.hideWatchedText = !$scope.hideWatchedText;
     }
 
-    loadCollection.then(
+    loadCollection().then(
       function(movieArray) {
         $scope.movies = movieArray;
       },
