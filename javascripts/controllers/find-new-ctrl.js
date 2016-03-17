@@ -1,8 +1,8 @@
 "use strict";
 
-app.controller("FindNewCtrl", ["$scope", "$http",
+app.controller("FindNewCtrl", ["$scope", "$http", "process_results",
   
-  function($scope,$http) {
+  function($scope,$http, process_results) {
     var movieArray = [];
     var movieObj;
 
@@ -13,6 +13,8 @@ app.controller("FindNewCtrl", ["$scope", "$http",
         url: "http://www.omdbapi.com/?s=" + $scope.findNewSearchString.replace(/ /g,"+")
       })
       .then(function(objReceived) {
+        process_results.storeResults(objReceived);
+        
         movieArray = objReceived.data.Search;
         console.log("movieArray", movieArray);
         movieObj = objReceived.data;
