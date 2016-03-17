@@ -1,16 +1,32 @@
 <section>
     <p>Your Movie Collection</p>
+
     <button id="showUntracked" ng-click="toggleWatched()">Show Untracked</button>
-    <button id="showWatched" ng-click="toggleWatched()">Show UnWatched</button>
+    <button id="showUnWatched" ng-click="toggleWatched()">Show UnWatched</button>
     <button id="showWatched" ng-click="toggleWatched()">Show Watched</button>
     <button id="favorites" ng-click="toggleWatched()">Favorites</button>
 
+    <div ng-include="'partials/filter-buttons.html'" scope="" onload=""></div>
     <div ng-repeat="movie in movies | filter:myCustomFilter">
         <div id="movieBox">
             <img ng-src={{movie.posterUrl}}>
+            <div class="star-rating">
+            <!-- 10 Open Stars -->
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+            </div>
             <p>rating: {{movie.stars}} stars</p>
             <button id="watched" ng-hide="hideWatchedButton" ng-click="addToWatched(movie)">Move to Watched</button>
             <p ng-hide="hideWatchedText">watched</p>
         </div>
     </div>
+
 </section>

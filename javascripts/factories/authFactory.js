@@ -26,6 +26,12 @@ app.factory("authFactory", (firebaseURL) => {
           "password": credentials.password
         }, (error, authData) => {
           if (error) {
+            if (error == "Error: The specified user does not exist."){
+              alert("This user does not exist, try again.");
+            }
+            if (error == "Error: The specified password is incorrect."){
+              alert("Password not recognized, please try again.");
+            }
             reject(error);
           } else {
             console.log("authWithPassword method completed successfully");
